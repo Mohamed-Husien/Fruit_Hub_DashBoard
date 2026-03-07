@@ -27,7 +27,7 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator ??
           (value) {
             if (value == null || value.isEmpty) {
-              return "هذا الحقل مطلوب";
+              return "This field is required";
             }
             return null;
           },
