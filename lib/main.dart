@@ -1,5 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:fruit_hub_dashboard/core/helper_fun/on_generate_route.dart';
+import 'package:fruit_hub_dashboard/features/dashboard/presentation/views/dash_board_view.dart';
 import 'package:fruit_hub_dashboard/firebase_options.dart';
 
 void main() async {
@@ -15,16 +17,10 @@ class FruitDashBoard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Fruit Hub Dashboard',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
-      home: const Scaffold(
-        body: Center(
-          child: Text('Welcome to Fruit Hub Dashboard!'),
-        ),
-      ),
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      onGenerateRoute: onGenerateRoute,
+      initialRoute: DashBoardView.routeName,
     );
   }
 }
