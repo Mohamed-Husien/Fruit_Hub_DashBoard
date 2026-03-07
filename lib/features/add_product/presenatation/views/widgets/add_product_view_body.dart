@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fruit_hub_dashboard/core/widgets/custom_text_form_field.dart';
 import 'package:fruit_hub_dashboard/features/add_product/presenatation/views/widgets/image_field.dart';
+import 'package:fruit_hub_dashboard/features/add_product/presenatation/views/widgets/is_featured_check_box.dart';
 
 class AddProductViewBody extends StatefulWidget {
   const AddProductViewBody({super.key});
@@ -20,35 +21,43 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
         child: Form(
           autovalidateMode: autovalidateMode,
           key: _formKey,
-          child: const Column(
+          child: Column(
             children: [
-              CustomTextFormField(
+              const CustomTextFormField(
                   hintText: "Product Name", textInputType: TextInputType.text),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              const CustomTextFormField(
                   hintText: "Product Price",
                   textInputType: TextInputType.number),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              const CustomTextFormField(
                   hintText: "Product Code",
                   textInputType: TextInputType.number),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              CustomTextFormField(
+              const CustomTextFormField(
                 hintText: "Product Description",
                 textInputType: TextInputType.text,
                 maxLines: 5,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 16,
               ),
-              ImageField(),
-              SizedBox(
+              IsFeaturedCheckBox(
+                onChanged: (value) {},
+              ),
+              const SizedBox(
+                height: 16,
+              ),
+              ImageField(
+                onImagePicked: (image) {},
+              ),
+              const SizedBox(
                 height: 16,
               ),
             ],
