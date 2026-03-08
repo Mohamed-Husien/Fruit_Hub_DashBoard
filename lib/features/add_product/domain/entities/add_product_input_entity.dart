@@ -7,7 +7,7 @@ class AddProductInputEntity {
   final String description;
   final File image;
   final bool isFeatured;
-  final String? imageURL;
+  String? imageURL;
 
   AddProductInputEntity(
       {required this.name,
