@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:dartz/dartz.dart';
 import 'package:fruit_hub_dashboard/core/errors/failures.dart';
 import 'package:fruit_hub_dashboard/core/repo/products_repo/products_repo.dart';
@@ -19,6 +21,7 @@ class ProductsRepoImple implements ProductsRepo {
           data: AddProductInputModel.fromEntity(product).toJson());
       return const Right(null);
     } catch (e) {
+      log("error in adding product : $e");
       return Left(
         ServerFailure("failed to add product"),
       );
