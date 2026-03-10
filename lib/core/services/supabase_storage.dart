@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:fruit_hub_dashboard/constants.dart';
 import 'package:fruit_hub_dashboard/core/services/storage_service.dart';
+import 'package:fruit_hub_dashboard/secret_key.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 import 'package:path/path.dart' as b;
 
