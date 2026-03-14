@@ -1,14 +1,15 @@
 import 'dart:io';
 
 import 'package:fruit_hub_dashboard/features/add_product/data/models/review_model.dart';
-import 'package:fruit_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruit_hub_dashboard/features/add_product/domain/entities/product_entity.dart';
 
-class AddProductInputModel {
+class ProductModel {
   final String name;
   final String productCode;
   final num price;
   final String description;
   final File image;
+  final String code;
   final bool isFeatured;
   String? imageURL;
   final int expirationMonths;
@@ -17,8 +18,9 @@ class AddProductInputModel {
   final int unitAmount;
   final num avgRating = 0;
   final num ratingCount = 0;
+  final int sellingCount;
   final List<ReviewModel> reviews;
-  AddProductInputModel(
+  ProductModel(
       {required this.name,
       required this.productCode,
       required this.price,
@@ -30,10 +32,12 @@ class AddProductInputModel {
       required this.numberOfCalories,
       required this.unitAmount,
       required this.reviews,
-      this.imageURL});
+      this.sellingCount = 0,
+      this.imageURL,
+      required this.code});
 
-  factory AddProductInputModel.fromEntity(AddProductInputEntity entity) {
-    return AddProductInputModel(
+  factory ProductModel.fromEntity(ProductEntity entity) {
+    return ProductModel(
       reviews: entity.reviews
           .map((review) => ReviewModel.fromEntity(review))
           .toList(),
@@ -48,13 +52,16 @@ class AddProductInputModel {
       numberOfCalories: entity.numberOfCalories,
       unitAmount: entity.unitAmount,
       imageURL: entity.imageURL,
+      code: entity.code,
     );
   }
   toJson() {
     return {
       "name": name,
+      "code": code,
       "productCode": productCode,
       "price": price,
+      "sellingCount": sellingCount,
       "description": description,
       "isFeatured": isFeatured,
       "expirationMonths": expirationMonths,

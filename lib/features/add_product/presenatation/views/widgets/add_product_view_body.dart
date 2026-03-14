@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fruit_hub_dashboard/core/widgets/custom_button.dart';
 import 'package:fruit_hub_dashboard/core/widgets/custom_text_form_field.dart';
-import 'package:fruit_hub_dashboard/features/add_product/domain/entities/add_product_input_entity.dart';
+import 'package:fruit_hub_dashboard/features/add_product/domain/entities/product_entity.dart';
 import 'package:fruit_hub_dashboard/features/add_product/presenatation/manager/add_product_cubit/add_product_cubit.dart';
 import 'package:fruit_hub_dashboard/features/add_product/presenatation/views/widgets/image_field.dart';
 import 'package:fruit_hub_dashboard/features/add_product/presenatation/views/widgets/is_featured_check_box.dart';
@@ -87,7 +87,7 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                     productCode = value!.toLowerCase();
                   },
                   hintText: "Product Code",
-                  textInputType: TextInputType.number),
+                  textInputType: TextInputType.text),
               const SizedBox(
                 height: 16,
               ),
@@ -131,7 +131,8 @@ class _AddProductViewBodyState extends State<AddProductViewBody> {
                     if (image != null) {
                       if (_formKey.currentState!.validate()) {
                         _formKey.currentState!.save();
-                        AddProductInputEntity product = AddProductInputEntity(
+                        ProductEntity product = ProductEntity(
+                            code: productCode,
                             reviews: [],
                             isOrganic: isOragnic,
                             expirationMonths: expirationMoths.toInt(),

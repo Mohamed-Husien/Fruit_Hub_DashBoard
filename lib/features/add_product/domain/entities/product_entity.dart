@@ -2,10 +2,11 @@ import 'dart:io';
 
 import 'package:fruit_hub_dashboard/features/add_product/domain/entities/review_entity.dart';
 
-class AddProductInputEntity {
+class ProductEntity {
   final String name;
   final String productCode;
   final num price;
+  final String code;
   final String description;
   final File image;
   final bool isFeatured;
@@ -17,7 +18,7 @@ class AddProductInputEntity {
   final num avgRating = 0;
   final num ratingCount = 0;
   final List<ReviewEntity> reviews;
-  AddProductInputEntity(
+  ProductEntity(
       {required this.name,
       required this.productCode,
       required this.price,
@@ -29,5 +30,6 @@ class AddProductInputEntity {
       required this.numberOfCalories,
       required this.unitAmount,
       required this.reviews,
-      this.imageURL});
+      this.imageURL,
+      required this.code});
 }
