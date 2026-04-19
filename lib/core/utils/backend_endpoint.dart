@@ -4,4 +4,6 @@ class BackendEndpoint {
   static const String isUserExists = 'users';
   static const String images = 'images';
   static const String productCollection = 'products';
+  static const String getOrders = 'Orders';
+  static const String updateOrder = 'Orders';
 }
